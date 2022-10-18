@@ -4,7 +4,6 @@ import { addTodo } from "../app/actions/addTodo";
 import uniqid from "uniqid";
 
 const AddToDo = () => {
-  //   const [value, setValue] = useState("");
   const [todo, setTodo] = useState({});
   const dispatch = useDispatch();
 
@@ -15,8 +14,6 @@ const AddToDo = () => {
       dispatch(addTodo(todo));
       setTodo({});
     }
-
-    // setValue("");
   };
 
   return (

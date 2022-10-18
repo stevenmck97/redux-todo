@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../app/actions/addTodo";
+import { addTodo } from "../app/actions/todoActions";
 import uniqid from "uniqid";
 
 const AddToDo = () => {

@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../app/actions/addTodo";
+import uniqid from "uniqid";
 
 const AddToDo = () => {
   //   const [value, setValue] = useState("");
-  const [todo, setTodo] = useState({ id: 1, text: "" });
+  const [todo, setTodo] = useState({});
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo(todo));
+
+    if (todo.text) {
+      dispatch(addTodo(todo));
+      setTodo({});
+    }
+
     // setValue("");
   };
 
@@ -19,9 +25,9 @@ const AddToDo = () => {
         <label>Add a new item</label>
         <input
           type="text"
-          value={todo.text}
+          value={todo.text || ""}
           onChange={(e) => {
-            setTodo({ id: (todo.id += 1), text: e.target.value });
+            setTodo({ id: uniqid(), text: e.target.value });
           }}
         />
         <button onClick={handleSubmit}>Add</button>

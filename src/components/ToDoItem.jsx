@@ -54,7 +54,7 @@ const ToDoItem = ({ todo }) => {
 
   return (
     <>
-      <ListWrapper key={todo.id}>
+      <ListWrapper key={todo.id} data-test-list>
         {!edit ? (
           <>
             {todo.text}
